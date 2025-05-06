@@ -23,6 +23,9 @@ public class Mecanico {
     @Email
     private String email;
 
+    @NotBlank @Size(min = 6)
+    private String senha;
+
     @ManyToOne
     @NotNull
     private Gerente gerenteResponsavel;
@@ -36,10 +39,11 @@ public class Mecanico {
     public Mecanico() {
     }
 
-    public Mecanico(Long id, String nome, String email, Gerente gerenteResponsavel, List<AlocacaoMoto> alocacoes, List<Moto> motosCadastradas) {
+    public Mecanico(Long id, String nome, String email, String senha, Gerente gerenteResponsavel, List<AlocacaoMoto> alocacoes, List<Moto> motosCadastradas) {
         this.id = id;
         this.nome = nome;
         this.email = email;
+        this.senha = senha;
         this.gerenteResponsavel = gerenteResponsavel;
         this.alocacoes = alocacoes;
         this.motosCadastradas = motosCadastradas;
@@ -67,6 +71,14 @@ public class Mecanico {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public Gerente getGerenteResponsavel() {
