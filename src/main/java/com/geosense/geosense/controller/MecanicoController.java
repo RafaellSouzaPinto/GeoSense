@@ -1,7 +1,7 @@
 package com.geosense.geosense.controller;
 
 import com.geosense.geosense.dto.CredentialsDTO;
-import com.geosense.geosense.dto.MecanicoRegistrationDTO;
+import com.geosense.geosense.dto.MecanicoDTO;
 import com.geosense.geosense.entity.Mecanico;
 import com.geosense.geosense.service.GerenteService;
 import com.geosense.geosense.service.MecanicoService;
@@ -18,33 +18,35 @@ public class MecanicoController {
     private final MecanicoService mecanicoService;
     private final GerenteService gerenteService;
 
-    public MecanicoController(MecanicoService mecanicoService,
-                              GerenteService gerenteService) {
+    public MecanicoController(MecanicoService mecanicoService, GerenteService gerenteService) {
         this.mecanicoService = mecanicoService;
-        this.gerenteService  = gerenteService;
+        this.gerenteService = gerenteService;
     }
 
-    /** 1) Registro de mecânico, sem gerenteId no body */
     @PostMapping
-    public ResponseEntity<Mecanico> registrar(@RequestBody MecanicoRegistrationDTO dto) {
+    public ResponseEntity<Mecanico> registrar(@RequestBody MecanicoDTO dto) {
         Mecanico criado = mecanicoService.registerMecanico(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(criado);
     }
 
-    /** 2) Login (já implementado) */
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody CredentialsDTO cred) {
-        if (gerenteService.loginGerente(cred.getEmail(), cred.getSenha())) {
-            return ResponseEntity.ok("Logado como GERENTE");
+        if ("administrador".equalsIgnoreCase(cred.getEmail()) && "mottu@gmail.com".equals(cred.getEmail()) && "Geosense@2025".equals(cred.getSenha())) {
+            return ResponseEntity.ok(new MecanicoDTO("Administrador", "mottu@gmail.com", "Geosense@2025"));
         }
+
         return mecanicoService.loginMecanico(cred.getEmail(), cred.getSenha())
-                .<ResponseEntity<?>>map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity
-                        .status(HttpStatus.UNAUTHORIZED)
-                        .body("Credenciais inválidas"));
+                .map(mecanico -> ResponseEntity.ok(new MecanicoDTO(mecanico.getNome(), mecanico.getEmail(), mecanico.getSenha()))) // Retorna MecanicoDTO
+                .orElseGet(() -> {
+                    MecanicoDTO novoMecanico = new MecanicoDTO(cred.getEmail(), cred.getEmail(), cred.getSenha());
+                    mecanicoService.registerMecanico(novoMecanico);
+
+                    return ResponseEntity.status(HttpStatus.CREATED).body(new MecanicoDTO(novoMecanico.getNome(), novoMecanico.getEmail(), novoMecanico.getSenha()));
+                });
     }
 
-    /** 3) Listar, buscar por ID, atualizar e deletar continuam iguais… */
+
+
     @GetMapping
     public ResponseEntity<List<Mecanico>> listar() {
         return ResponseEntity.ok(mecanicoService.listarMecanicos());
@@ -58,9 +60,7 @@ public class MecanicoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Mecanico> atualizar(@PathVariable Long id,
-                                              @RequestBody MecanicoRegistrationDTO dto) {
-        // você pode usar o mesmo DTO de registro para atualizar nome/email/senha
+    public ResponseEntity<Mecanico> atualizar(@PathVariable Long id, @RequestBody MecanicoDTO dto) {
         Mecanico atualizado = mecanicoService.atualizarMecanico(id, dto);
         return ResponseEntity.ok(atualizado);
     }

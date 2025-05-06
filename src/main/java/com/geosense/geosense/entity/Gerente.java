@@ -1,5 +1,6 @@
 package com.geosense.geosense.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -27,6 +28,7 @@ public class Gerente {
     private String senha;
 
     @OneToMany(mappedBy = "gerenteResponsavel")
+    @JsonIgnore
     private List<Mecanico> mecanicos;
 
     public Gerente() {

@@ -1,6 +1,6 @@
 package com.geosense.geosense.service;
 
-import com.geosense.geosense.dto.MecanicoRegistrationDTO;
+import com.geosense.geosense.dto.MecanicoDTO;
 import com.geosense.geosense.entity.Gerente;
 import com.geosense.geosense.entity.Mecanico;
 import com.geosense.geosense.repository.GerenteRepository;
@@ -16,15 +16,12 @@ public class MecanicoService {
     private final MecanicoRepository mecanicoRepo;
     private final GerenteRepository gerenteRepo;
 
-    public MecanicoService(MecanicoRepository mecanicoRepo,
-                           GerenteRepository gerenteRepo) {
+    public MecanicoService(MecanicoRepository mecanicoRepo, GerenteRepository gerenteRepo) {
         this.mecanicoRepo = mecanicoRepo;
-        this.gerenteRepo  = gerenteRepo;
+        this.gerenteRepo = gerenteRepo;
     }
 
-    /** Novo método de registro, sem precisar do gerenteId no JSON */
-    public Mecanico registerMecanico(MecanicoRegistrationDTO dto) {
-        // pega sempre o gerente “root”
+    public Mecanico registerMecanico(MecanicoDTO dto) {
         Gerente gerente = gerenteRepo
                 .findByEmailAndSenha("mottu@gmail.com", "Geosense@2025")
                 .orElseThrow(() -> new RuntimeException("Gerente root não encontrado"));
@@ -38,15 +35,30 @@ public class MecanicoService {
         return mecanicoRepo.save(m);
     }
 
-    /** Mantém seus métodos de listar/atualizar/deletar… */
-
     public List<Mecanico> listarMecanicos() {
         return mecanicoRepo.findAll();
+    }
+
+    public Optional<Mecanico> buscarPorId(Long id) {
+        return mecanicoRepo.findById(id);
+    }
+
+    public Mecanico atualizarMecanico(Long id, MecanicoDTO dto) {
+        Mecanico existente = mecanicoRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Mecânico não encontrado"));
+
+        existente.setNome(dto.getNome());
+        existente.setEmail(dto.getEmail());
+        existente.setSenha(dto.getSenha());
+
+        return mecanicoRepo.save(existente);
+    }
+
+    public void deletarMecanico(Long id) {
+        mecanicoRepo.deleteById(id);
     }
 
     public Optional<Mecanico> loginMecanico(String email, String senha) {
         return mecanicoRepo.findByEmailAndSenha(email, senha);
     }
-
-    // …
 }
