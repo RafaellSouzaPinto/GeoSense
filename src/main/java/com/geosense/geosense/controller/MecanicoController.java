@@ -46,7 +46,6 @@ public class MecanicoController {
     }
 
 
-
     @GetMapping
     public ResponseEntity<List<Mecanico>> listar() {
         return ResponseEntity.ok(mecanicoService.listarMecanicos());
