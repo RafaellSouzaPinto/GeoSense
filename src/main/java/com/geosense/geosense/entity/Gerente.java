@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
-
+// Mudar totalmente -> vai extender de usuario ADMIN
 @Entity
 public class Gerente {
 

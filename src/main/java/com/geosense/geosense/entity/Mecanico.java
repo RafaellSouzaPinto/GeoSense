@@ -9,6 +9,7 @@ import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
+// VAI EXTENDER DE USUARIO
 @Entity
 @JsonIgnoreProperties({"gerenteResponsavel"})
 public class Mecanico {
