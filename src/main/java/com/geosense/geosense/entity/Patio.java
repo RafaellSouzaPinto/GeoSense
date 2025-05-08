@@ -10,7 +10,7 @@ public class Patio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "patio")
+    @OneToMany(mappedBy = "patio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Vaga> vagas;
 
     public Patio() {

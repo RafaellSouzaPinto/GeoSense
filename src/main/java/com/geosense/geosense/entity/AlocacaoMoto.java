@@ -18,18 +18,17 @@ public class AlocacaoMoto {
 
     @ManyToOne
     @NotNull
-    private Vaga vaga;
+    private Vaga vaga   ;
 
     @ManyToOne
-    @NotNull
-    private Mecanico mecanicoResponsavel;
+    private Usuario mecanicoResponsavel;
 
     private LocalDateTime dataHoraAlocacao;
 
     public AlocacaoMoto() {
     }
 
-    public AlocacaoMoto(Long id, Moto moto, Vaga vaga, Mecanico mecanicoResponsavel, LocalDateTime dataHoraAlocacao) {
+    public AlocacaoMoto(Long id, Moto moto, Vaga vaga, Usuario mecanicoResponsavel, LocalDateTime dataHoraAlocacao) {
         this.id = id;
         this.moto = moto;
         this.vaga = vaga;
@@ -61,11 +60,11 @@ public class AlocacaoMoto {
         this.vaga = vaga;
     }
 
-    public Mecanico getMecanicoResponsavel() {
+    public Usuario getMecanicoResponsavel() {
         return mecanicoResponsavel;
     }
 
-    public void setMecanicoResponsavel(Mecanico mecanicoResponsavel) {
+    public void setMecanicoResponsavel(Usuario mecanicoResponsavel) {
         this.mecanicoResponsavel = mecanicoResponsavel;
     }
 
@@ -75,16 +74,5 @@ public class AlocacaoMoto {
 
     public void setDataHoraAlocacao(LocalDateTime dataHoraAlocacao) {
         this.dataHoraAlocacao = dataHoraAlocacao;
-    }
-
-    @Override
-    public String toString() {
-        return "AlocacaoMoto{" +
-                "id=" + id +
-                ", moto=" + moto +
-                ", vaga=" + vaga +
-                ", mecanicoResponsavel=" + mecanicoResponsavel +
-                ", dataHoraAlocacao=" + dataHoraAlocacao +
-                '}';
     }
 }

@@ -26,9 +26,8 @@ public class Moto {
     @Size(min = 10, max = 50)
     private String chassi;
 
-    @Enumerated(EnumType.STRING)
     @NotNull
-    private TipoVaga problemaIdentificado;
+    private String problemaIdentificado;
 
     @OneToOne
     private Vaga vaga;
@@ -36,17 +35,13 @@ public class Moto {
     @OneToMany(mappedBy = "moto")
     private List<Defeito> defeitos;
 
-    @ManyToOne
-    @NotNull
-    private Mecanico mecanicoResponsavel;
-
     @OneToMany(mappedBy = "moto")
     private List<AlocacaoMoto> historicoAlocacoes;
 
     public Moto() {
     }
 
-    public Moto(Long id, String modelo, String placa, String chassi, TipoVaga problemaIdentificado, Vaga vaga, List<Defeito> defeitos, Mecanico mecanicoResponsavel, List<AlocacaoMoto> historicoAlocacoes) {
+    public Moto(Long id, String modelo, String placa, String chassi, String problemaIdentificado, Vaga vaga, List<Defeito> defeitos, List<AlocacaoMoto> historicoAlocacoes) {
         this.id = id;
         this.modelo = modelo;
         this.placa = placa;
@@ -54,7 +49,6 @@ public class Moto {
         this.problemaIdentificado = problemaIdentificado;
         this.vaga = vaga;
         this.defeitos = defeitos;
-        this.mecanicoResponsavel = mecanicoResponsavel;
         this.historicoAlocacoes = historicoAlocacoes;
     }
 
@@ -90,11 +84,11 @@ public class Moto {
         this.chassi = chassi;
     }
 
-    public TipoVaga getProblemaIdentificado() {
+    public String getProblemaIdentificado() {
         return problemaIdentificado;
     }
 
-    public void setProblemaIdentificado(TipoVaga problemaIdentificado) {
+    public void setProblemaIdentificado(String problemaIdentificado) {
         this.problemaIdentificado = problemaIdentificado;
     }
 
@@ -114,14 +108,6 @@ public class Moto {
         this.defeitos = defeitos;
     }
 
-    public Mecanico getMecanicoResponsavel() {
-        return mecanicoResponsavel;
-    }
-
-    public void setMecanicoResponsavel(Mecanico mecanicoResponsavel) {
-        this.mecanicoResponsavel = mecanicoResponsavel;
-    }
-
     public List<AlocacaoMoto> getHistoricoAlocacoes() {
         return historicoAlocacoes;
     }
@@ -129,6 +115,4 @@ public class Moto {
     public void setHistoricoAlocacoes(List<AlocacaoMoto> historicoAlocacoes) {
         this.historicoAlocacoes = historicoAlocacoes;
     }
-
-
 }
