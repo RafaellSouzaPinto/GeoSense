@@ -25,7 +25,7 @@ public class VagaService {
     private PatioRepository patioRepository;
 
     @Autowired
-    private MotoRepository motoRepository; // ✅ ADICIONAR
+    private MotoRepository motoRepository;
 
     public VagaDTO criar(VagaDTO dto) {
         Patio patio = patioRepository.findById(dto.getPatioId())
