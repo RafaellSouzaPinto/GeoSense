@@ -18,12 +18,12 @@ public class Moto {
     @Size(max = 50)
     private String modelo;
 
-    @NotBlank
     @Size(min = 7, max = 10)
+    @Column(nullable = true, unique = true)
     private String placa;
 
-    @NotBlank
-    @Size(min = 10, max = 50)
+    @Size(max = 50)
+    @Column(nullable = true, unique = true)
     private String chassi;
 
     @NotNull
@@ -38,10 +38,10 @@ public class Moto {
     @OneToMany(mappedBy = "moto")
     private List<AlocacaoMoto> historicoAlocacoes;
 
-    public Moto() {
-    }
+    public Moto() {}
 
-    public Moto(Long id, String modelo, String placa, String chassi, String problemaIdentificado, Vaga vaga, List<Defeito> defeitos, List<AlocacaoMoto> historicoAlocacoes) {
+    public Moto(Long id, String modelo, String placa, String chassi, String problemaIdentificado, Vaga vaga,
+                List<Defeito> defeitos, List<AlocacaoMoto> historicoAlocacoes) {
         this.id = id;
         this.modelo = modelo;
         this.placa = placa;
@@ -51,6 +51,8 @@ public class Moto {
         this.defeitos = defeitos;
         this.historicoAlocacoes = historicoAlocacoes;
     }
+
+    // Getters e Setters
 
     public Long getId() {
         return id;

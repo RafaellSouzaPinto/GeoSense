@@ -31,6 +31,11 @@ public class VagaService {
         Patio patio = patioRepository.findById(dto.getPatioId())
                 .orElseThrow(() -> new RuntimeException("Pátio não encontrado"));
 
+        // A verificação continua com o tipo 'int' para o numero
+        if (vagaRepository.existsByNumeroAndPatioId(dto.getNumero(), dto.getPatioId())) {
+            throw new RuntimeException("Já existe uma vaga com esse número nesse pátio. Escolha outro número.");
+        }
+
         Vaga vaga = new Vaga();
         vaga.setNumero(dto.getNumero());
         vaga.setTipo(dto.getTipo());
@@ -40,8 +45,14 @@ public class VagaService {
         if (dto.getMotoId() != null) {
             Moto moto = motoRepository.findById(dto.getMotoId())
                     .orElseThrow(() -> new RuntimeException("Moto não encontrada"));
+
+            if (vaga.getMoto() != null) {
+                throw new RuntimeException("Esta vaga já está ocupada.");
+            }
+
             vaga.setMoto(moto);
             moto.setVaga(vaga);
+            vaga.setStatus(StatusVaga.OCUPADA);
         }
 
         Vaga salva = vagaRepository.save(vaga);

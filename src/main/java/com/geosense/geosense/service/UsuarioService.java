@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 public class UsuarioService {
 
-    private static final String ADMIN_EMAIL    = "mottu@gmail.com";
+    private static final String ADMIN_EMAIL = "mottu@gmail.com";
     private static final String ADMIN_PASSWORD = "Geosense@2025";
 
     private final UsuarioRepository repo;
@@ -52,6 +52,20 @@ public class UsuarioService {
     }
 
     public Usuario register(UsuarioDTO dto) {
+        // Impede criação de novo admin via POST
+        if (ADMIN_EMAIL.equals(dto.getEmail()) && ADMIN_PASSWORD.equals(dto.getSenha())) {
+            Optional<Usuario> adminExistente = repo.findByTipo(TipoUsuario.ADMINISTRADOR);
+            return adminExistente.orElseThrow(() ->
+                    new IllegalArgumentException("Administrador já existe. Use o login."));
+        }
+
+        Optional<Usuario> existente = repo
+                .findByEmailOrNomeOrSenha(dto.getEmail(), dto.getNome(), dto.getSenha());
+
+        if (existente.isPresent()) {
+            throw new IllegalArgumentException("Usuário com e-mail, nome ou senha já existente.");
+        }
+
         Usuario u = new Usuario();
         u.setNome(dto.getNome());
         u.setEmail(dto.getEmail());

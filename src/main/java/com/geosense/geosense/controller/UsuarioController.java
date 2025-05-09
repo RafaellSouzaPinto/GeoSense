@@ -21,7 +21,6 @@ public class UsuarioController {
         this.service = service;
     }
 
-
     @PostMapping(
             path = "/login",
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -35,17 +34,19 @@ public class UsuarioController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Usuario> create(@RequestBody UsuarioDTO dto) {
-        Usuario criado = service.register(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(criado);
+    public ResponseEntity<?> create(@RequestBody UsuarioDTO dto) {
+        try {
+            Usuario criado = service.register(dto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(criado);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
     }
-
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Usuario>> listAll() {
         return ResponseEntity.ok(service.listAll());
     }
-
 
     @GetMapping(
             path = "/{id}",
@@ -62,13 +63,9 @@ public class UsuarioController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<?> update(
-            @PathVariable Long id,
-            @RequestBody UsuarioDTO dto
-    ) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody UsuarioDTO dto) {
         return service.update(id, dto);
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {

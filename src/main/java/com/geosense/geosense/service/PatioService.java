@@ -29,11 +29,16 @@ public class PatioService {
         Patio patio = new Patio();
         patio.setVagas(vagas);
 
+        for (Vaga vaga : vagas) {
+            vaga.setPatio(patio);
+        }
+
         Patio salvo = patioRepository.save(patio);
 
         return new PatioDTO(salvo.getId(),
                 salvo.getVagas().stream().map(Vaga::getId).collect(Collectors.toList()));
     }
+
 
     public Optional<PatioDTO> buscarPorId(Long id) {
         return patioRepository.findById(id).map(patio ->
