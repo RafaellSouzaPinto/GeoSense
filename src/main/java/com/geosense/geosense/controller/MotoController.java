@@ -32,8 +32,5 @@ public class MotoController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/vagas-livres")
-    public ResponseEntity<List<Vaga>> vagasPorTipo(@RequestParam String tipo) {
-        return ResponseEntity.ok(motoService.vagasDisponiveisPorTipo(tipo));
-    }
+
 }

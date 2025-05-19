@@ -5,5 +5,4 @@ public enum TiposDefeitos {
     DANOS_ESTRUTURAIS_GRAVES,
     MOTOR_DEFEITUOSO,
     SEM_PLACA
-
 }

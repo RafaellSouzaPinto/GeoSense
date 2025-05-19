@@ -88,10 +88,5 @@ public class MotoService {
         motoRepository.deleteById(id);
     }
 
-    public List<Vaga> vagasDisponiveisPorTipo(String tipo) {
-        return vagaRepository.findAll().stream()
-                .filter(v -> v.getTipo().name().equalsIgnoreCase(tipo) &&
-                        v.getStatus().name().equalsIgnoreCase("DISPONIVEL"))
-                .collect(Collectors.toList());
-    }
+
 }
