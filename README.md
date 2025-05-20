@@ -223,9 +223,9 @@ POST /api/v1/usuariosRegistra novo usuário.
 }
 ```
 POST /api/v1/usuarios/loginAutentica e retorna JWT.
-
+```json
 { "email": "joao@email.com", "senha": "123456" }
-
+```
 GET /api/v1/usuarios — Lista todos os usuários
 
 GET /api/v1/usuarios/{id} — Busca usuário por ID
@@ -263,52 +263,5 @@ mvn spring-boot:run
 
 Acesse em: http://localhost:8080/api/v1/
 
-<a id="arquitetura"></a>
-## 🏗️ Arquitetura
-```text
-
-src/main/java/com/geosense/geosense
-├── controller   # Endpoints REST
-├── service      # Lógica de negócio
-├── repository   # Acesso a dados (JPA/Hibernate)
-├── entity       # Mapeamentos JPA
-├── dto          # Transferência de dados
-└── GeosenseApplication.java  # Boot Spring
-
-<parent>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-parent</artifactId>
-  <version>3.2.5</version>
-</parent>
-<properties>
-  <java.version>17</java.version>
-</properties>
-<dependencies>
-  <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.oracle.database.jdbc</groupId>
-    <artifactId>ojdbc8</artifactId>
-    <version>21.9.0.0</version>
-  </dependency>
-  <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-validation</artifactId>
-  </dependency>
-</dependencies>
-
-spring.application.name=geosense
-spring.datasource.url=jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl
-spring.datasource.username=SEU_RM
-spring.datasource.password=SUA_SENHA
-spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
 
 
