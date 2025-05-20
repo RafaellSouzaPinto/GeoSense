@@ -11,6 +11,7 @@
 
 ---
 
+<a id="descricao-do-projeto"></a>
 ## 📖 Descrição do Projeto
 
 Com o crescimento acelerado da **Mottu** desde 2020, a empresa se destaca com:
@@ -46,6 +47,9 @@ Isso gera _atrasos_, _retrabalho_ e _decisões reativas_, impactando custos e es
 | Licença                       | [Licença](#licença)  
 
 ---
+
+
+<a id="problemas-identificados"></a>
 ## 🛑 Problemas Identificados
 
 1. **Localização manual** de motos  
@@ -56,6 +60,7 @@ Isso gera _atrasos_, _retrabalho_ e _decisões reativas_, impactando custos e es
 
 ---
 
+<a id="solucao-proposta"></a>
 ## 🚀 Solução Proposta
 
 GeoSense digitaliza e centraliza todas as informações do pátio, entregando:
@@ -68,6 +73,7 @@ GeoSense digitaliza e centraliza todas as informações do pátio, entregando:
 
 ---
 
+<a id="beneficios"></a>
 ## 🎯 Benefícios
 
 - **80%+** redução no tempo de busca  
@@ -78,6 +84,7 @@ GeoSense digitaliza e centraliza todas as informações do pátio, entregando:
 
 ---
 
+<a id="como-funciona"></a>
 ## ⚙️ Como Funciona
 
 1. 🚀 **Registro**: mecânico informa defeito no app  
@@ -88,6 +95,7 @@ GeoSense digitaliza e centraliza todas as informações do pátio, entregando:
 
 ---
 
+<a id="arquitetura"></a>
 ## 🏗️ Arquitetura
 ```text
 
@@ -135,6 +143,7 @@ spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
+<a id="funcionalidades--testes"></a>
 ⚡ Funcionalidades & Testes
 
 Atenção: esta é a seção mais importante! Teste cada endpoint através do Postman.
@@ -240,6 +249,7 @@ DELETE /api/v1/vagas/{id} — Remove vaga por ID
 
 ---
 
+<a id="como-executar"></a>
 ▶️ Como Executar
 # 1. Clone o repositório
 git clone https://github.com/seu-usuario/geosense.git
