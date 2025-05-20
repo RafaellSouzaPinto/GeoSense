@@ -238,3 +238,20 @@ GET /api/v1/vagas — Lista todas as vagas
 GET /api/v1/vagas/{id} — Busca vaga por ID
 
 DELETE /api/v1/vagas/{id} — Remove vaga por ID
+
+---
+
+▶️ Como Executar
+# 1. Clone o repositório
+git clone https://github.com/seu-usuario/geosense.git
+cd geosense
+
+# 2. Ajuste suas credenciais
+# em src/main/resources/application.properties
+
+# 3. Build & Run
+mvn clean install
+mvn spring-boot:run
+
+Acesse em: http://localhost:8080/api/v1/
+
