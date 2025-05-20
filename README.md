@@ -90,6 +90,7 @@ GeoSense digitaliza e centraliza todas as informações do pátio, entregando:
 ---
 
 ## 🏗️ Arquitetura
+```text
 
 src/main/java/com/geosense/geosense
 ├── controller   # Endpoints REST
