@@ -107,7 +107,7 @@ POST /api/v1/alocacoesAloca moto em vaga disponível.
   "vagaId": 10,
   "mecanicoId": 2
 }
-
+```
 GET /api/v1/alocacoes — Lista todas as alocações
 
 GET /api/v1/alocacoes/{id} — Busca alocação por ID
