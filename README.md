@@ -34,19 +34,18 @@ Isso gera _atrasos_, _retrabalho_ e _decisões reativas_, impactando custos e es
 
 | Seção                         | Link                                  |
 |-------------------------------|---------------------------------------|
-| Descrição do Projeto          | [#descrição-do-projeto](#📖-descrição-do-projeto)        |
-| Problemas Identificados       | [#problemas-identificados](#🛑-problemas-identificados)    |
-| Solução Proposta              | [#solução-proposta](#🚀-solução-proposta)                |
-| Benefícios                    | [#benefícios](#🎯-benefícios)                          |
-| Como Funciona                 | [#como-funciona](#⚙️-como-funciona)                     |
-| Arquitetura                   | [#arquitetura](#🏗️-arquitetura)                        |
-| **Funcionalidades & Testes**  | [#funcionalidades--testes](#⚡-funcionalidades--testes) |
-| Como Executar                 | [#como-executar](#▶️-como-executar)                      |
-| Contribuição                  | [#contribuição](#🤝-contribuição)                       |
-| Licença                       | [#licença](#📄-licença)                                 |
+| Descrição do Projeto          | [Descrição do Projeto](#descrição-do-projeto)        |
+| Problemas Identificados       | [Problemas Identificados](#problemas-identificados)    |
+| Solução Proposta              | [Solução Proposta](#solução-proposta)                |
+| Benefícios                    | [Benefícios](#benefícios)                          |
+| Como Funciona                 | [Como Funciona](#como-funciona)                     |
+| Arquitetura                   | [Arquitetura](#arquitetura)                        |
+| Funcionalidades & Testes      | [Funcionalidades & Testes](#funcionalidades--testes) |
+| Como Executar                 | [Como Executar](#como-executar)                      |
+| Contribuição                  | [Contribuição](#contribuição)                       |
+| Licença                       | [Licença](#licença)  
 
 ---
-
 ## 🛑 Problemas Identificados
 
 1. **Localização manual** de motos  
