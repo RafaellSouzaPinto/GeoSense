@@ -35,16 +35,15 @@ Isso gera _atrasos_, _retrabalho_ e _decisões reativas_, impactando custos e es
 
 | Seção                         | Link                                  |
 |-------------------------------|---------------------------------------|
-| Descrição do Projeto          | [Descrição do Projeto](#descrição-do-projeto)        |
+| Descrição do Projeto          | [Descrição do Projeto](#descricao-do-projeto)        |
 | Problemas Identificados       | [Problemas Identificados](#problemas-identificados)    |
-| Solução Proposta              | [Solução Proposta](#solução-proposta)                |
-| Benefícios                    | [Benefícios](#benefícios)                          |
+| Solução Proposta              | [Solução Proposta](#solucao-proposta)                |
+| Benefícios                    | [Benefícios](#beneficios)                          |
 | Como Funciona                 | [Como Funciona](#como-funciona)                     |
 | Arquitetura                   | [Arquitetura](#arquitetura)                        |
 | Funcionalidades & Testes      | [Funcionalidades & Testes](#funcionalidades--testes) |
 | Como Executar                 | [Como Executar](#como-executar)                      |
-| Contribuição                  | [Contribuição](#contribuição)                       |
-| Licença                       | [Licença](#licença)  
+
 
 ---
 
