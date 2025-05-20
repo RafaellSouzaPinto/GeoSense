@@ -249,7 +249,7 @@ DELETE /api/v1/vagas/{id} — Remove vaga por ID
 ---
 
 <a id="como-executar"></a>
-▶️ Como Executar
+## ▶️ Como Executar
 # 1. Clone o repositório
 git clone https://github.com/seu-usuario/geosense.git
 cd geosense
