@@ -91,7 +91,6 @@ GeoSense digitaliza e centraliza todas as informações do pátio, entregando:
 
 ## 🏗️ Arquitetura
 
-```text
 src/main/java/com/geosense/geosense
 ├── controller   # Endpoints REST
 ├── service      # Lógica de negócio
@@ -135,7 +134,6 @@ spring.datasource.password=SUA_SENHA
 spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-```text
 
 ⚡ Funcionalidades & Testes
 
