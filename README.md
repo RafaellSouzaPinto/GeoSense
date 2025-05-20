@@ -136,112 +136,105 @@ spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
-## ⚡ Funcionalidades & Testes
+⚡ Funcionalidades & Testes
 
 Atenção: esta é a seção mais importante! Teste cada endpoint através do Postman.
 
 📂 Alocação de Moto
 
-Método
+POST /api/v1/alocacoesAloca moto em vaga disponível.
 
-Endpoint
+{
+  "motoId": 1,
+  "vagaId": 10,
+  "mecanicoId": 2
+}
 
-Descrição
+GET /api/v1/alocacoes — Lista todas as alocações
 
-Payload de Exemplo (POST)
+GET /api/v1/alocacoes/{id} — Busca alocação por ID
 
-POST
+DELETE /api/v1/alocacoes/{id} — Remove alocação por ID
 
-/api/v1/alocacoes
+📂 Defeitos
 
-Aloca moto em vaga disponível
+POST /api/v1/defeitosRegistra novo defeito.
 
-```json
+{
+  "tiposDefeitos": "MOTOR_DEFEITUOSO",
+  "descricao": "Falha no motor",
+  "motoId": 1
+}
 
-{ "motoId": 1, "vagaId": 10, "mecanicoId": 2 }
+GET /api/v1/defeitos — Lista todos os defeitos
 
-| GET    | `/api/v1/alocacoes`       | Lista todas as alocações             | —                                                    |
-| GET    | `/api/v1/alocacoes/{id}`  | Busca alocação por ID                | —                                                    |
-| DELETE | `/api/v1/alocacoes/{id}`  | Remove alocação por ID               | —                                                    |
+GET /api/v1/defeitos/{id} — Busca defeito por ID
 
-### 📂 Defeitos
+DELETE /api/v1/defeitos/{id} — Remove defeito por ID
 
-| Método | Endpoint                  | Descrição                      | Payload de Exemplo (POST)                                                            |
-| ------ | ------------------------- | -------------------------------- | ------------------------------------------------------------------------------------- |
-| POST   | `/api/v1/defeitos`        | Registra novo defeito           | ```json
-{ "tiposDefeitos": "MOTOR_DEFEITUOSO", "descricao": "Falha no motor", "motoId": 1 }
-| GET    | /api/v1/defeitos        | Lista todos os defeitos        | —                                                                                    |
-| GET    | /api/v1/defeitos/{id}   | Busca defeito por ID           | —                                                                                    |
-| DELETE | /api/v1/defeitos/{id}   | Remove defeito por ID          | —                                                                                    |
+📂 Motos
 
-Método
+POST /api/v1/motosCadastra nova moto.
 
-Endpoint
+{
+  "modelo": "CB500",
+  "placa": "ABC1234",
+  "chassi": "XYZ9876543210",
+  "problemaIdentificado": "Freio traseiro"
+}
 
-Descrição
+GET /api/v1/motos — Lista todas as motos
 
-Payload de Exemplo (POST)
+DELETE /api/v1/motos/{id} — Remove moto por ID
 
-POST
+📂 Pátios
 
-/api/v1/motos
+POST /api/v1/patiosCria novo pátio.
 
-Cadastra nova moto
+{
+  "vagas": [
+    { "numero": 1, "tipo": "REPARO_SIMPLES" },
+    { "numero": 2, "tipo": "MOTOR_DEFEITUOSO" }
+  ]
+}
 
-```json
+GET /api/v1/patios — Lista todos os pátios
 
-{ "modelo": "CB500", "placa": "ABC1234", "chassi": "XYZ9876543210", "problemaIdentificado": "Freio traseiro" }
-| GET    | `/api/v1/motos`      | Lista todas as motos   | —                                                                                      |
-| DELETE | `/api/v1/motos/{id}` | Remove moto por ID     | —                                                                                      |
+GET /api/v1/patios/{id} — Busca pátio por ID
 
-### 📂 Pátios
+DELETE /api/v1/patios/{id} — Remove pátio por ID
 
-| Método | Endpoint              | Descrição          | Payload de Exemplo (POST)                                                            |
-| ------ | --------------------- | ------------------ | ------------------------------------------------------------------------------------- |
-| POST   | `/api/v1/patios`      | Cria novo pátio    | ```json
-{ "vagas": [{ "numero":1, "tipo":"REPARO_SIMPLES" }, { "numero":2, "tipo":"MOTOR_DEFEITUOSO" }] }
-| GET    | /api/v1/patios/{id} | Busca pátio por ID | —                                                                                     |
-| GET    | /api/v1/patios      | Lista todos os pátios | —                                                                                   |
-| DELETE | /api/v1/patios/{id} | Remove pátio por ID | —                                                                                   |
+📂 Usuários
 
-### 📂 Usuários
+POST /api/v1/usuariosRegistra novo usuário.
 
-Método
+{
+  "nome": "João",
+  "email": "joao@email.com",
+  "senha": "123456",
+  "tipo": "MECANICO"
+}
 
-Endpoint
+POST /api/v1/usuarios/loginAutentica e retorna JWT.
 
-Descrição
-
-Payload de Exemplo (POST)
-
-POST
-
-/api/v1/usuarios
-
-Registra novo usuário
-
-```json { "nome": "João", "email": "joao@email.com", "senha": "123456", "tipo": "MECANICO" }
-| POST   | `/api/v1/usuarios/login` | Autentica e retorna JWT| ```json
 { "email": "joao@email.com", "senha": "123456" }
-| GET    | /api/v1/usuarios       | Lista todos os usuários| —                                                                                  |
-| GET    | /api/v1/usuarios/{id}  | Busca usuário por ID   | —                                                                                  |
-| PUT    | /api/v1/usuarios/{id}  | Atualiza usuário       | ```json
-// mesmo payload do POST de criação
 
-| DELETE | `/api/v1/usuarios/{id}`  | Remove usuário por ID  | —                                                                                  |
+GET /api/v1/usuarios — Lista todos os usuários
 
-### 📂 Vagas
+GET /api/v1/usuarios/{id} — Busca usuário por ID
 
-| Método | Endpoint             | Descrição             | Payload de Exemplo (POST)                                                        |
-| ------ | -------------------- | --------------------- | --------------------------------------------------------------------------------- |
-| POST   | `/api/v1/vagas`      | Cria nova vaga        | ```json
+PUT /api/v1/usuarios/{id} — Atualiza usuário (mesmo payload do POST)
+
+DELETE /api/v1/usuarios/{id} — Remove usuário por ID
+
+📂 Vagas
+
+POST /api/v1/vagasCria nova vaga.
+
 { "numero": 5, "tipo": "SEM_PLACA", "patioId": 1 }
-| GET    | /api/v1/vagas      | Lista todas as vagas  | —                                                                                 |
-| GET    | /api/v1/vagas/{id} | Busca vaga por ID     | —                                                                                 |
-| DELETE | /api/v1/vagas/{id} | Remove vaga por ID    | —
 
-## ▶️ Como Executar
-$ git clone https://github.com/seu-usuario/geosense.git
-$ cd geosense
-$ mvn clean install
-$ mvn spring-boot:run                                                                            |
+GET /api/v1/vagas — Lista todas as vagas
+
+GET /api/v1/vagas/{id} — Busca vaga por ID
+
+DELETE /api/v1/vagas/{id} — Remove vaga por ID
