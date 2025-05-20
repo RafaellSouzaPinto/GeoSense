@@ -139,7 +139,7 @@ spring.datasource.password=SUA_SENHA
 spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-
+```
 ---
 
 <a id="funcionalidades--testes"></a>
