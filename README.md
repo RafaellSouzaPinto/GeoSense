@@ -239,7 +239,7 @@ DELETE /api/v1/usuarios/{id} — Remove usuário por ID
 POST /api/v1/vagasCria nova vaga.
 ```json
 { "numero": 5, "tipo": "SEM_PLACA", "patioId": 1 }
-
+```
 GET /api/v1/vagas — Lista todas as vagas
 
 GET /api/v1/vagas/{id} — Busca vaga por ID
