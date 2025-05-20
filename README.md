@@ -143,7 +143,7 @@ spring.jpa.show-sql=true
 ---
 
 <a id="funcionalidades--testes"></a>
-⚡ Funcionalidades & Testes
+## ⚡ Funcionalidades & Testes
 
 > **Atenção:** esta é a seção mais importante! Teste cada endpoint utilizando o [Postman](https://www.postman.com/).
 
