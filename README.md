@@ -866,14 +866,13 @@ Vaga não encontrada.
 <a id="como-executar"></a>
 ## ▶️ Como Executar
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/geosense.git
+git clone https://github.com/RafaellSouzaPinto/GeoSense.git
 cd geosense
 
 # 2. Ajuste suas credenciais
 # em src/main/resources/application.properties
 
 # 3. Run
-
 Acesse em: http://localhost:8080/
 
 
