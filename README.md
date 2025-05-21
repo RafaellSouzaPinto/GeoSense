@@ -162,8 +162,7 @@ http://localhost:8080/alocacoes
 
 ##### Request
 
-<details>
-<summary><code>POST http://localhost:8080/alocacoes</code> – Body (JSON)</summary>
+POST http://localhost:8080/alocacoes
 
 ```json
 {
@@ -290,8 +289,7 @@ Sem conteúdo no corpo, indica que a remoção foi bem-sucedida.
 
 **Descrição:** registra um defeito associado a uma moto.
 
-<details>
-<summary><code>POST http://localhost:8080/defeitos</code> – Request Body</summary>
+POST http://localhost:8080/defeitos
 
 ```json
 {
@@ -300,7 +298,6 @@ Sem conteúdo no corpo, indica que a remoção foi bem-sucedida.
   "motoId": 1
 }
 ```
-</details>
 
 | Campo           | Tipo          | Obrigatório | Descrição                                                      |
 | --------------- | ------------- | ----------- | -------------------------------------------------------------- |
@@ -404,8 +401,7 @@ Corpo vazio indica remoção bem-sucedida.
 
 **Descrição:** cadastra uma nova moto, aplicando validações de negócio.
 
-<details>
-<summary><code>POST http://localhost:8080/motos</code> – Request Body</summary>
+POST http://localhost:8080/motos
 
 ```json
 {
@@ -416,7 +412,6 @@ Corpo vazio indica remoção bem-sucedida.
   "vagaId": 5
 }
 ```
-</details>
 
 | Campo                  | Tipo   | Obrigatório | Descrição                                                                                                                   |
 | ---------------------- | ------ | ----------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -509,15 +504,13 @@ Sem conteúdo no corpo, indica sucesso na remoção.
 
 **Descrição:** cria um novo pátio e vincula as vagas existentes.
 
-<details>
-<summary><code>POST http://localhost:8080/patios</code> – Request Body</summary>
+POST http://localhost:8080/patios
 
 ```json
 {
   "vagaIds": [1, 2, 3]
 }
 ```
-</details>
 
 | Campo     | Tipo          | Obrigatório | Descrição                                                              |
 | --------- | ------------- | ----------- | ---------------------------------------------------------------------- |
@@ -605,8 +598,7 @@ Sem conteúdo no corpo, indica remoção bem-sucedida.
 - Se `email` = `mottu@gmail.com` **e** `senha` = `Geosense@2025` → ADMINISTRADOR  
 - Caso contrário → MECÂNICO  
 
-<details>
-<summary><code>POST http://localhost:8080/usuarios</code> – Request Body</summary>
+POST http://localhost:8080/usuarios
 
 ```json
 {
@@ -648,12 +640,12 @@ Quando tenta criar ADMINISTRADOR existente:
 ▶ POST /login
 Autentica usuário e retorna mensagem ou vincula primeiro admin.
 POST http://localhost:8080/usuarios/login
-
+```json
 {
   "email": "joao@email.com",
   "senha": "123456"
 }
-</details>
+```
 Lógica
 
 Se credenciais = admin padrão e não existir ADMIN → cria e retorna 201 Created "Administrador vinculado".
