@@ -171,7 +171,6 @@ POST http://localhost:8080/alocacoes
   "mecanicoResponsavelId": 2
 }
 ```
-</details>
 | Campo                   | Tipo | Obrigatório | Descrição                                    |
 | ----------------------- | ---- | ----------- | -------------------------------------------- |
 | `motoId`                | Long | ✅           | ID da moto que será alocada                  |
