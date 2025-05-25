@@ -870,7 +870,6 @@ Vaga não encontrada.
 ## ▶️ Como Executar
 # 1. Clone o repositório
 git clone https://github.com/RafaellSouzaPinto/GeoSense.git
-cd geosense
 
 # 2. Ajuste suas credenciais
 # em src/main/resources/application.properties
