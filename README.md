@@ -22,11 +22,7 @@ Com o crescimento acelerado da **Mottu** desde 2020, a empresa se destaca com:
 - **250 000+ entregas/mês** em 171 cidades (Brasil & México)  
 - **100 000+ motos** alugadas em 100+ filiais  
 
-Contudo, a **gestão de pátio** ainda é manual, fragmentada entre:
-
-- Planilhas  
-- Chamadas telefônicas  
-- Inspeção visual  
+Contudo, a **gestão de pátio** ainda é manual
 
 Isso gera _atrasos_, _retrabalho_ e _decisões reativas_, impactando custos e escalabilidade.
 
