@@ -1,6 +1,9 @@
 # GeoSense
 *Transforme seu pátio em um espaço inteligente, seguro e eficiente*
 
+### Rafael de Souza Pinto - RM 555130
+### Luis Paulo Freitas Fernandes - RM 555497
+### Enzo Marsola - RM 556310
 ---
 
 <p align="center">
